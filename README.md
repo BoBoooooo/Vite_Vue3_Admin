@@ -1,8 +1,10 @@
-# vue3 + vite + tsx +antd
+# vue3 + vite + tsx + antd
 
 **比较超前的试验性框架,基于[vite](https://vite-design.surge.sh/guide/chinese-doc.html)新一代脚手架搭建...**
 
- 目前vue3生态还在逐步建立中...vue2.x项目不建议直接升级vue3. 第三方ui框架目前似乎只有antd for vue 支持vue3, 大家耐心等待其他开源.
+ 目前vue3生态还在逐步建立中...vue2.x项目不建议直接升级vue3. 
+ 
+ 第三方ui框架目前似乎只有antd支持vue3, 大家耐心等待其他开源.
 
 ## 风格指南
 * TSX + Composition API (比较推荐)
