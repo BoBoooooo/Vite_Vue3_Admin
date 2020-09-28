@@ -6,6 +6,8 @@
  
  第三方ui框架目前似乎只有antd支持vue3, 大家耐心等待其他开源.
 
+ 欢迎Star~
+
 ## 风格指南
 * TSX + Composition API (比较推荐)
 最终我们的App.tsx写法如下
