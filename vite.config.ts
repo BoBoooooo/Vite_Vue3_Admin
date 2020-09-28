@@ -1,11 +1,10 @@
 /*
- * @Author: your name
- * @Date: 2020-07-17 00:15:50
- * @LastEditTime: 2020-09-28 15:24:46
- * @LastEditors: your name
- * @Description: In User Settings Edit
- * @FilePath: /vue3-tsx-master/vite.config.ts
+ * @file: vite config
+ * @copyright: NanJing Anshare Tech .Com
+ * @author: BoBo
+ * @Date: 2020年09月28日16:29:47
  */
+
 import { SharedConfig } from 'vite';
 import path from 'path';
 
