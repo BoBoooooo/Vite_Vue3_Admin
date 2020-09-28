@@ -1,4 +1,4 @@
-# vue3 + vite + tsx +antd
+# vue3 + vite + tsx + antd
 
 **比较超前的试验性框架,基于[vite](https://vite-design.surge.sh/guide/chinese-doc.html)新一代脚手架搭建...**
 
