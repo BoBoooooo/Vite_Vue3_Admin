@@ -1,8 +1,10 @@
-import { state } from './state';
+import { info } from './state';
 import { createStore } from 'vuex';
 
 export default createStore({
-  state,
+  state: {
+    info,
+  },
   mutations: {},
   actions: {},
   modules: {},

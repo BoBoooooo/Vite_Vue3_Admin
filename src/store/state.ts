@@ -1,7 +1,7 @@
-export interface State {
+export interface Info {
   title: string;
 }
 
-export const state: State = {
+export const info: Info = {
   title: 'Vue3 + TSX + Vite',
 };
