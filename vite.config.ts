@@ -1,23 +1,19 @@
 /*
  * @file: vite config
- * @copyright: NanJing Anshare Tech .Com
+ * @copyright: BoBo
  * @author: BoBo
  * @Date: 2020年09月28日16:29:47
  */
+import vue from '@vitejs/plugin-vue';
+import jsx from '@vitejs/plugin-vue-jsx';
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
-import { SharedConfig } from 'vite';
-import path from 'path';
-
-const pathResolve = (pathStr: string) => {
-  return path.resolve(__dirname, pathStr);
-};
-
-// https://github.com/vitejs/vite/blob/master/src/node/config.ts
-const config: SharedConfig = {
-  alias: {
-    '/@/': pathResolve('./src'),
+export default defineConfig({
+  resolve: {
+    alias: {
+      '~': resolve(__dirname, 'src'),
+    },
   },
-  cssPreprocessOptions: {},
-};
-
-module.exports = config;
+  plugins: [vue(), jsx()],
+});
