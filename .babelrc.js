@@ -5,7 +5,4 @@
  * @Date: 2020年09月28 10:52:50
  */
 module.exports = {
-  plugins: [
-    ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }],
-  ],
 };

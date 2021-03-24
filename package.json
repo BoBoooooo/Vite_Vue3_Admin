@@ -8,7 +8,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "ant-design-vue": "2.0.0-beta.10",
+    "element-plus": "^1.0.2-beta.35",
+    "vite-plugin-svg-icons": "^0.4.0",
     "vue": "^3.0.0-0",
     "vue-router": "4.0.0-beta.12",
     "vuex": "4.0.0-beta.4"

@@ -1,12 +1,8 @@
-# vue3 + vite + tsx + antd
+# vue3 + vite + element-plus
 
 **比较超前的试验性框架,基于[vite](https://vite-design.surge.sh/guide/chinese-doc.html)新一代脚手架搭建...**
 
  目前vue3生态还在逐步建立中...vue2.x项目不建议直接升级vue3. 
- 
- 第三方ui框架目前似乎只有antd支持vue3, 大家耐心等待其他开源.
-
- 欢迎Star~
 
 ## 风格指南
 * TSX + Composition API (比较推荐)
@@ -53,13 +49,8 @@ export default {
 * 等等...大家根据自己编程喜好进行选择.
 
 ## 踩坑
-"ant-design-vue": "2.0.0-beta.10"
 
-按照官网按需引入方式,css未能成功加载.
-
-暂时将css全局引入解决.
-
-https://github.com/vueComponent/ant-design-vue/issues/2803
+...
 
 ## 梗
 

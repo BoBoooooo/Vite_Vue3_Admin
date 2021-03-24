@@ -12,7 +12,8 @@
     "outDir": "./dist" /* Redirect output structure to the directory. */,
     "baseUrl": "./src",
     "paths": {
-      "~/*": ["./*"]
+      "~/*": ["./*"],
+      "@/*": ["./*"]
     },
     "strict": true /* Enable all strict type-checking options. */,
     "noUnusedLocals": true /* Report errors on unused locals. */,
