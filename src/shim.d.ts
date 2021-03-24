@@ -5,7 +5,6 @@ declare module "*.vue" {
 }
 
 interface ImportMeta {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   env: any;
 }
 

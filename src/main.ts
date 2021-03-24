@@ -3,18 +3,19 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import '@/style/index.scss';
-import 'vite-plugin-svg-icons/register';
+// 导入element-plus
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
+// 注册svgIcon
+import 'vite-plugin-svg-icons/register';
 import SvgIcon from '@/components/SvgIcon/SvgIcon.vue'
-const app = createApp(App).use(router).use(store);
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const app = createApp(App).use(router).use(store);
 app.use(ElementPlus as any);
 
-
+// 全局注册SvgIcon组件
 app.component('SvgIcon', SvgIcon);
-// 全局变量
-// app.config.globalProperties.$message = message;
 
+// 全局变量 挂载
+// app.config.globalProperties.xxx = xxx;
 app.mount('#app');

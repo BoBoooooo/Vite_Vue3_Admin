@@ -6,7 +6,6 @@
 import SvgIconsPlugin from 'vite-plugin-svg-icons';
 import path from 'path';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function configSvgIconsPlugin(isBuild: boolean) {
   const svgIconsPlugin = SvgIconsPlugin({
     iconDirs: [path.resolve(process.cwd(), 'src/icons')],
