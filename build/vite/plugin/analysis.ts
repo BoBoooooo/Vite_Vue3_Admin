@@ -4,11 +4,12 @@
  */
 
  import visualizer from "rollup-plugin-visualizer";
- 
- export function configAnalysisPlugin() {
+ import type { Plugin } from 'vite';
+
+ export function configAnalysisPlugin(): Plugin | Plugin[]  {
   const plugin = visualizer({
     open: true,
   })
-   return plugin;
+   return plugin as Plugin;
  }
  

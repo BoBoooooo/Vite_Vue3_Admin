@@ -141,7 +141,7 @@ export default defineComponent({
     }
     .author {
       background: #ffbebe -webkit-linear-gradient(left, #fff8f8, #fff) 0 0 no-repeat;
-      -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: rgba(255, 255, 255, 0.3);
       cursor: pointer;
       font-size: 1.5em;
