@@ -62,16 +62,15 @@
 
 <script lang="ts">
 import { defineComponent, reactive, Ref, ref } from 'vue';
-// import { useRouter } from 'vue-router';
-// import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
 export default defineComponent({
-  name: 'Demo',
+  name: 'Login',
   setup() {
-    // const store = useStore();
-    // const router = useRouter();
+    const store = useStore();
+    const router = useRouter();
     const btnLoginIsLoading = ref(false);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const formRef: Ref<any> = ref(null);
     const loginForm = reactive({
       username: '',
@@ -83,24 +82,23 @@ export default defineComponent({
     };
     const handleLogin = () => {
       btnLoginIsLoading.value = true;
-      formRef.value!.validate((valid: boolean) => {
+      formRef.value.validate((valid: boolean) => {
         if (!valid) {
           btnLoginIsLoading.value = false;
           return null;
         }
-        console.log(loginForm);
-        // store
-        //   .dispatch('setTokenByLogin', loginForm)
-        //   .then(() => {
-        //     btnLoginIsLoading.value = false;
-        //     // 进入内部页面
-        //     router.push({
-        //       path: '/',
-        //     });
-        //   })
-        //   .catch(() => {
-        //     btnLoginIsLoading.value = false;
-        //   });
+        store
+          .dispatch('user/setTokenByLogin', loginForm)
+          .then(() => {
+            btnLoginIsLoading.value = false;
+            // 进入内部页面
+            router.push({
+              path: '/',
+            });
+          })
+          .catch(() => {
+            btnLoginIsLoading.value = false;
+          });
         return null;
       });
     };

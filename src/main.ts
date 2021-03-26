@@ -9,6 +9,7 @@ import 'element-plus/lib/theme-chalk/index.css';
 // 注册svgIcon
 import 'vite-plugin-svg-icons/register';
 import SvgIcon from '@/components/SvgIcon/SvgIcon.vue'
+import '@/permission'; // 权限控制
 
 const app = createApp(App).use(router).use(store);
 app.use(ElementPlus as any);

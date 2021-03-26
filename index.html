@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="renderer" content="webkit" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0"
-    />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
 
     <title><%= title %></title>
     <link rel="icon" href="/favicon.ico" />
@@ -144,5 +141,15 @@
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
+    <!-- 后端地址 -->
+    <% if (HOST_URL) { %>
+    <script>
+      window.__HOST__URL__ = '<%= HOST_URL%>';
+    </script>
+    <% } %> <% if (PREFIX_URL) { %>
+    <script>
+      window.__PREFIX__URL__ = '<%= PREFIX_URL%>';
+    </script>
+    <% } %>
   </body>
 </html>

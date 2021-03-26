@@ -25,16 +25,15 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
 export default defineComponent({
   name: 'NotFound',
   setup() {
-    const router = useRouter();
-    const goLogin = (): void => {
-      // this.$store.commit('SET_TOKEN', null);
-      // window.location.reload();
-      router.push('/');
+    const store = useStore();
+    const goLogin = () => {
+      store.commit('SET_TOKEN', null);
+      window.location.reload();
     };
     return {
       goLogin,

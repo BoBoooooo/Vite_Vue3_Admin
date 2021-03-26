@@ -1,2 +1,153 @@
-@import './reset.scss';
-@import './login.module.scss'
+/*这里引用了所有styles下的样式文件，但不包括element*相关样式，
+因为vue-cli3安装插件时默认把其样式引用放到plugins/element.js*/
+@import './mixin.scss'; // 待重构
+@import './transition.scss'; // 全局动画效果
+@import './utils.scss';
+body {
+  height: 100%;
+  overflow: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 15px;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+code {
+  background: #eef1f6;
+  padding: 15px 16px;
+  margin-bottom: 20px;
+  display: block;
+  line-height: 36px;
+  font-size: 15px;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  a {
+    color: #337ab7;
+    cursor: pointer;
+    &:hover {
+      color: rgb(32, 160, 255);
+    }
+  }
+}
+//main-container全局样式
+.app-container {
+  padding: 20px;
+}
+
+.components-container {
+  margin: 30px 50px;
+  position: relative;
+}
+
+.pagination-container {
+  margin-top: 30px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+  &:hover {
+    color: rgb(32, 160, 255);
+  }
+}
+
+.filter-container {
+  padding-bottom: 10px;
+  .filter-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+}
+
+//refine vue-multiselect plugin
+.multiselect {
+  line-height: 16px;
+}
+
+.multiselect--active {
+  z-index: 1000 !important;
+}
+
+// 公用页面样式
+.page-container {
+  height: 100%;
+  background: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+.el-input.is-disabled .el-input__inner {
+  background-color: white !important;
+  color: unset !important;
+}
+.el-textarea.is-disabled .el-textarea__inner {
+  background-color: white !important;
+  color: unset !important;
+}
+
+input {
+  background-color: none !important;
+}
+
+.el-checkbox__inner {
+  border: 1px solid #409eff;
+}
+
+.shadow {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.msgBox {
+  width: 60% !important;
+  max-height: 80%;
+  overflow: auto;
+}
+
+//工作留表单字号大小
+@each $fontSize in 14px, 16px, 18px {
+  .font-size-#{$fontSize} {
+    .table-form-wrapper {
+      .el-form-item__label,
+      .el-input__inner,
+      .el-textarea__inner {
+        font-size: #{$fontSize} !important;
+      }
+    }
+  }
+}

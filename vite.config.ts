@@ -23,6 +23,8 @@ export default defineConfig({
     injectHtml({
       injectData: {
         title: 'vite_vue3_demo',
+        HOST_URL: 'http://localhost:7788',
+        PREFIX_URL: '/'
       },
     }),
     // svgIcon支持

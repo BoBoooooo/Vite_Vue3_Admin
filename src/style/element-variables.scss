@@ -1,0 +1,13 @@
+/*
+ * @file: element-ui 主题色配置
+ * @copyright: BoBo
+ * @author: BoBo
+ * @Date: 2020年09月14 18:01:58
+ */
+
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+$--color-primary:#616dad;
+$--color-success:#4CAF50;
+$--color-warning:#fb8c00;
+$--color-danger:#ff5252;
+@import "~element-ui/packages/theme-chalk/src/index";
