@@ -30,17 +30,17 @@ export const constantRouterMap: RouteRecordRaw[] = [
     meta: {
       title: '首页',
     },
-    // redirect: '/dashboard/dashboard',
-    // children: [
-    //   {
-    //     path: 'dashboard',
-    //     component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/Dashboard.vue'),
-    //     name: 'dashboardForUserIndex',
-    //     meta: {
-    //       title: '首页',
-    //     },
-    //   },
-    // ],
+    redirect: '/dashboard/dashboard',
+    children: [
+      {
+        path: 'dashboard',
+        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/Dashboard.vue'),
+        name: 'dashboardForUserIndex',
+        meta: {
+          title: '首页',
+        },
+      },
+    ],
   },
 ];
 

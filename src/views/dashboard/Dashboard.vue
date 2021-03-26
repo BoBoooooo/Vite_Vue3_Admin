@@ -22,7 +22,7 @@
             class="icon"
           />
           <div class="tips">
-            <h2>你好</h2>
+            <h2>你好 {{ realname }}</h2>
             <div>作者寄语：能见众生便是如来，不易匠心方得始终。 除去繁华，愿匠心安在。</div>
           </div>
         </el-card>
@@ -38,7 +38,6 @@
                 我的开源项目</span>
             </div>
           </template>
-
           <div class="demo-container">
             <el-row
               :gutter="15"
@@ -93,16 +92,21 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-class-component';
-import data from './data/github';
+import projectData from './data/github';
+import { reactive } from 'vue';
+import { useStore } from 'vuex';
 
-@Component({
+export default {
   name: 'Dashboard',
-})
-export default class Dashboard extends Vue {
-  data = data;
-  
-}
+  setup() {
+    const data = reactive(projectData);
+    const store = useStore()
+    return {
+      data,
+      realname: store.getters['user/realname']
+    };
+  },
+};
 </script>
 <style lang="scss" scoped>
 .dashboard-container {
