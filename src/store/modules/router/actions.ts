@@ -2,7 +2,7 @@ import { RouteRecordRaw } from 'vue-router';
 import { RootState } from '@/store/root.state';
 import { ActionTree } from 'vuex';
 import { RouterState } from './state';
-import { asyncRouterMap } from '@/router/index';
+import router,{ asyncRouterMap } from '@/router/index';
 
 function hasPermission(roles: string[], route: RouteRecordRaw) {
   if (route.name) {
@@ -33,8 +33,12 @@ function filterAsyncRouter(routerMap: RouteRecordRaw[], roles: string[]) {
 
 const actions: ActionTree<RouterState, RootState> = {
   // 根据角色名称设置路由
-  generateRoutes({ commit }, args) {
+  generateRoutes({ commit,state }, userInfo) {
     // 当前用户有权限的路由，当前用户登录名
+   const args =  {
+      roleRouters: userInfo.roleAuthName.split(','),
+      userName: userInfo.userName,
+    }
     const { roleRouters, userName } = args;
     return new Promise((resolve) => {
       // 管理员可查看所有页面
@@ -44,6 +48,9 @@ const actions: ActionTree<RouterState, RootState> = {
         const accessedRouters = filterAsyncRouter(asyncRouterMap, roleRouters);
         commit('SET_ROUTERS', accessedRouters);
       }
+      state.addRouters.forEach((route: RouteRecordRaw) => {
+        router.addRoute(route);
+      });
       resolve();
     });
   },

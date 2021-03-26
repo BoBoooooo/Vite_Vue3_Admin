@@ -5,13 +5,12 @@
  * @Date: 2020-12-07 09:33:26
  */
 import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router';
-import Layout from '../views/layout/Layout.vue';
 
 // 固定路由表
 export const constantRouterMap: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/dashboard',
+    redirect: '/dashboard/index',
     component: () => import('@/views/layout/Layout.vue'),
     meta: { hidden: true },
     name: 'dashboard',
@@ -23,17 +22,20 @@ export const constantRouterMap: RouteRecordRaw[] = [
     component: () => import('@/views/public/404.vue'),
     meta: { hidden: true },
   },
+];
+
+export const asyncRouterMap: RouteRecordRaw[] = [
   {
     path: '/dashboard',
-    component: Layout,
+    component: () => import('@/views/layout/Layout.vue'),
     name: 'dashboardForUser',
     meta: {
       title: '首页',
     },
-    redirect: '/dashboard/dashboard',
+    redirect: '/dashboard/index',
     children: [
       {
-        path: 'dashboard',
+        path: 'index',
         component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/Dashboard.vue'),
         name: 'dashboardForUserIndex',
         meta: {
@@ -42,30 +44,8 @@ export const constantRouterMap: RouteRecordRaw[] = [
       },
     ],
   },
-];
-
-export const asyncRouterMap: RouteRecordRaw[] = [
   {
-    path: '/dashboard',
-    component: Layout,
-    name: 'dashboardForUser',
-    meta: {
-      title: '首页',
-    },
-    // redirect: '/dashboard/dashboard',
-    // children: [
-    //   {
-    //     path: 'dashboard',
-    //     component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/Dashboard.vue'),
-    //     name: 'dashboardForUserIndex',
-    //     meta: {
-    //       title: '首页',
-    //     },
-    //   },
-    // ],
-  },
-  {
-    path: '*',
+    path: '/*',
     redirect: '/404',
     meta: { hidden: true },
   },
