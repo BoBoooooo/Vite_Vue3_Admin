@@ -1,7 +1,6 @@
 /*这里引用了所有styles下的样式文件，但不包括element*相关样式，
 因为vue-cli3安装插件时默认把其样式引用放到plugins/element.js*/
 @import './mixin.scss'; // 待重构
-@import './transition.scss'; // 全局动画效果
 @import './utils.scss';
 body {
   height: 100%;
