@@ -17,7 +17,6 @@
         hideSidebar: !sidebar,
       }"
     >
-      <!-- 折叠侧边栏按钮 -->
       <Hamburger
         :toggle-click="toggleSideBar"
         :is-active="!!sidebar"
@@ -29,29 +28,12 @@
           isActive: !sidebar,
         }"
       />
-      <!-- 面包屑导航 -->
-      <Breadcrumb />
-
+      <Breadcrumb /> 
       <div class="header-right-container">
-        <!-- 即时通讯 -->
-        <OnlineChat
-          :style="{
-            color: themeColor.header.textColor,
-          }"
-        />
-        <!-- 姓名及下拉菜单 -->
         <div class="user-container">
-          <img
-            v-if="photo"
-            :src="photo"
-            class="photo"
-            @click="showCard"
-          >
           <svgIcon
-            v-else
             class="photo"
-            icon-class="teacher"
-            @click="showCard"
+            icon-class="public-teacher"
           />
           <span
             :style="{
@@ -59,7 +41,7 @@
             }"
             class="userName el-dropdown-link"
           >
-            {{ this.$store.getters.realname }}</span>
+            {{ realname }}</span>
           <i
             :style="{
               color: themeColor.header.textColor,
@@ -70,58 +52,52 @@
         </div>
       </div>
     </el-header>
-    <PersonInfoCard ref="personInfoCard" />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-class-component';
-import { Getter } from 'vuex-class';
 import Hamburger from '@/components/Hamburger/Hamburger.vue';
-import themeColor from '@/styles/theme';
-import OnlineChat from '@/components/OnlineChat/OnlineChat.vue';
 import Breadcrumb from '@/components/Breadcrumb/index.vue';
-import PersonInfoCard from './PersonInfoCard.vue';
+import { computed, defineComponent, reactive, ref } from 'vue';
+import { useStore } from 'vuex';
+import color from '@/style/theme';
 
-@Option({
+export default defineComponent({
   name: 'Header',
   components: {
     Hamburger,
-    PersonInfoCard,
-    OnlineChat,
     Breadcrumb,
   },
-})
-export default class Header extends Vue {
-  @Getter config!: SystemConfig;
+  setup() {
+    const personInfoCard: Ref<null> = ref(null);
+    const themeColor = reactive(color);
+    const store = useStore();
+    const methods = {
+      toggleSideBar() {
+       store.dispatch('app/ToggleSideBar');
+      },
 
-  @Getter photo!: string;
+      logOut() {
+       store.dispatch('user/clearToken');
+      },
+    };
 
-  $refs!: {
-    personInfoCard: HTMLFormElement;
-  };
+    const sidebar = computed(() => {
+      return store.getters['app/sidebar'].opened;
+    });
 
-  themeColor = themeColor;
-
-  get sidebar() {
-    return this.$store.getters.sidebar.opened;
-  }
-
-  showCard() {
-    this.$refs.personInfoCard.showDialog();
-  }
-
-  toggleSideBar() {
-    this.$store.dispatch('ToggleSideBar');
-  }
-
-  logOut() {
-    this.$store.dispatch('clearToken');
-  }
-}
+    return {
+      personInfoCard,
+      sidebar,
+      themeColor,
+      ...methods,
+      realname: store.getters['user/realname']
+    };
+  },
+});
 </script>
 <style scoped>
-.tag >>> .el-tag__close {
+.tag :deep .el-tag__close {
   margin-top: 2px;
 }
 </style>
@@ -157,6 +133,7 @@ export default class Header extends Vue {
   align-items: center;
   justify-content: flex-end;
   right: 30px;
+  top: 0;
   position: absolute;
   display: flex;
   height: 60px;

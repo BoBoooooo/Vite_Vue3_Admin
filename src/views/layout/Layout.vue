@@ -7,9 +7,9 @@
 <template>
   <div class="app-wrapper">
     <!-- 导航栏 -->
-    <!-- <Header /> -->
+    <Header />
     <!-- 左侧菜单 -->
-    <!-- <Menu /> -->
+    <Menu />
     <div
       class="main-container"
       :class="{
@@ -27,16 +27,15 @@
 </template>
 
 <script>
-// import { AppMain, Header, Menu } from './components/index.ts';
-import { AppMain } from './components/index.ts';
+import { AppMain,Header,Menu } from './components/index.ts';
 
 export default {
    name: 'Layout',
   components: {
     AppMain,
-    // // TagsView,
-    // Header,
-    // Menu,
+    // TagsView,
+    Header,
+    Menu,
   },
  computed:{
    sidebar() {

@@ -17,7 +17,7 @@
     >
       <img
         class="header_logo"
-        src="@/assets/logo.png"
+        src="/src/assets/logo.png"
       >
       <span
         class="title"
@@ -47,33 +47,31 @@
 </template>
 
 <script lang="ts">
-import { Option, Vue } from 'vue-class-component';
-import { Getter } from 'vuex-class';
-import themeColor from '@/styles/theme';
-import { RouteConfig } from 'vue-router';
+import color from '@/style/theme';
 import MenuItem from './MenuItem.vue';
+import { reactive, computed } from 'vue';
+import { useStore } from 'vuex';
+import { defineComponent } from 'vue';
 
-@Option({
+export default defineComponent({
   name: 'Menu',
   components: {
     MenuItem,
   },
+  setup() {
+    const store = useStore();
+    const themeColor = reactive(color);
+    const sidebar = computed(() => store.getters['app/sidebar'].opened);
+    const title = computed(() => import.meta.env.VITE_NAME);
+
+    return {
+      themeColor,
+      sidebar,
+      title,
+      routers: store.getters['router/routers'],
+    };
+  },
 })
-export default class Menu extends Vue {
-  @Getter routers!: RouteConfig;
-
-  @Getter config!: SystemConfig;
-
-  themeColor = themeColor;
-
-  get sidebar() {
-    return this.$store.getters.sidebar.opened;
-  }
-
-  get title() {
-    return this.config.systemName || process.env.VUE_APP_NAME;
-  }
-}
 </script>
 <style scoped>
 .el-submenu__icon-arrow el-icon-arrow-right {
@@ -87,9 +85,10 @@ export default class Menu extends Vue {
   top: 0;
   display: flex;
   align-items: center;
-  width: 219px;
+  width: 220px;
   padding-left: 20px;
   text-align: center;
+  box-sizing: border-box;
   height: 64px;
   line-height: 64px;
   .header_logo {
@@ -107,12 +106,12 @@ export default class Menu extends Vue {
     color: yellow;
   }
   &.hideSidebar {
-    width: 63px;
+    width: 64px;
     padding: 0;
-    .title{
+    .title {
       display: none;
     }
-    .header_logo{
+    .header_logo {
       margin: 0 auto;
     }
   }

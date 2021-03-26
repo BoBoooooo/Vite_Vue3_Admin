@@ -10,7 +10,7 @@
     <el-row :gutter="15">
       <el-col :span="24">
         <el-card
-          shadow="never"
+          shadow="hover"
           :body-style="{
             display: 'flex',
             'flex-wrap': 'wrap',
@@ -18,7 +18,7 @@
           }"
         >
           <SvgIcon
-            icon-class="teacher"
+            icon-class="public-teacher"
             class="icon"
           />
           <div class="tips">
@@ -30,11 +30,14 @@
     </el-row>
     <el-row :gutter="15">
       <el-col :span="24">
-        <el-card class="mt-15">
+        <el-card
+          class="mt-15"
+          shadow="hover"
+        >
           <template #header>
             <div class="clearfix">
               <span>
-                <SvgIcon icon-class="banner" />
+                <SvgIcon icon-class="public-banner" />
                 我的开源项目</span>
             </div>
           </template>
@@ -55,7 +58,7 @@
                     shadow="hover"
                   >
                     <SvgIcon
-                      icon-class="item"
+                      icon-class="public-item"
                       class="image"
                     />
                     <div

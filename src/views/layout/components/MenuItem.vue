@@ -9,9 +9,9 @@
   <div class="menu-wrapper">
     <template v-for="item in routes">
       <router-link
-        v-if="!item.meta.hidden && item.children && item.children.length===1"
+        v-if="!item.meta.hidden && item.children && item.children.length === 1"
         :key="item.name"
-        :to="{name:item.children[0].name}"
+        :to="{ name: item.children[0].name }"
       >
         <el-tooltip
           effect="dark"
@@ -19,7 +19,7 @@
           placement="right"
         >
           <el-menu-item :index="item.children[0].name">
-            <SvgIcon :icon-class="item.meta.title" /> {{ item.children[0].meta.title }}
+            <SvgIcon :icon-class="'menu-'+item.meta.title" /> {{ item.children[0].meta.title }}
           </el-menu-item>
         </el-tooltip>
       </router-link>
@@ -29,11 +29,11 @@
         :index="item.name"
       >
         <template #title>
-          <SvgIcon :icon-class="item.meta.title" /> {{ item.meta.title }}
+          <SvgIcon :icon-class="'menu-'+item.meta.title" /> {{ item.meta.title }}
         </template>
-        <template v-for="child in item.children.filter(s=> !s.meta.hidden)">
+        <template v-for="child in item.children.filter((s) => !s.meta.hidden)">
           <menu-item
-            v-if="child.children && child.children.length>0"
+            v-if="child.children && child.children.length > 0"
             :key="child.name"
             :routes="[child]"
             class="menu-indent"
@@ -41,10 +41,10 @@
           <router-link
             v-else
             :key="child.name"
-            :to="item.path+'/'+child.path"
+            :to="item.path + '/' + child.path"
             class="menu-indent"
           >
-            <el-menu-item :index="item.path+'/'+child.path">
+            <el-menu-item :index="item.path + '/' + child.path">
               {{ child.meta.title }}
             </el-menu-item>
           </router-link>
@@ -54,22 +54,20 @@
   </div>
 </template>
 
-
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-class-component';
-import { RouteConfig } from 'vue-router';
+import { defineComponent } from 'vue';
 
-@Option({
+export default defineComponent({
   name: 'MenuItem',
-})
-export default class MenuItem extends Vue {
-  @Prop({
-    type: Array,
-    required: true,
-    default: () => [],
-  })
-  private routes!: RouteConfig;
-}
+
+  props: {
+    routes: {
+      type: Array,
+      required: true,
+      default: () => [],
+    },
+  },
+});
 </script>
 
 <style scoped>
