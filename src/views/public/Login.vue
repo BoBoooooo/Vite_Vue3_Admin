@@ -11,7 +11,7 @@
             class="banner"
           />
           <p class="author">
-            © Awesome Crud Framework By BoBo
+            © Vite2 + Vue3 + ElementPlus By BoBo
           </p>
         </div>
       </el-col>
@@ -78,7 +78,7 @@ export default defineComponent({
     });
 
     const redirectToGitHub = () => {
-      window.open('https://github.com/BoBoooooo/BoBo-Vue-Admin', '_blank');
+      window.open('https://github.com/BoBoooooo/Vite_Vue3_Demo', '_blank');
     };
     const handleLogin = () => {
       btnLoginIsLoading.value = true;
