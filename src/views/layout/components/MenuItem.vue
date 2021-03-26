@@ -71,7 +71,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.subitem >>> .el-badge__content {
+.subitem :deep .el-badge__content {
   margin-top: 10px;
 }
 </style>
