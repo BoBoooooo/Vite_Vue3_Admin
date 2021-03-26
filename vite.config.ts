@@ -1,8 +1,8 @@
 /*
- * @file: vite config
+ * @file: https://vitejs.dev/config/
  * @copyright: BoBo
  * @author: BoBo
- * @Date: 2020年09月28日16:29:47
+ * @Date: 2021年3月28日19:29:47
  */
 // import jsx from '@vitejs/plugin-vue-jsx';
 import { loadEnv, UserConfig, ConfigEnv } from 'vite';

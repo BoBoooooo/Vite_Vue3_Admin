@@ -5,8 +5,10 @@
  目前vue3生态还在逐步建立中...vue2.x项目不建议直接升级vue3. 
 
 ## 风格指南
-* TSX + Composition API (比较推荐)
-最终我们的App.tsx写法如下
+
+* TS(JS) + template + vue-class-component(option-api) (传统官方推荐写法,保留template)
+
+* TSX + Composition API
 ```javascript
 import { defineComponent } from 'vue';
 import {RouterLink, RouterView} from 'vue-router';
@@ -43,8 +45,6 @@ export default {
   }
 }
 ```
-
-* TS(JS) + template + vue-class-component(也可不用) (传统官方推荐写法,保留template)
 
 * 等等...大家根据自己编程喜好进行选择.
 
