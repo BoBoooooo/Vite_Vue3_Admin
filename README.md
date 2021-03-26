@@ -1,8 +1,16 @@
-# vue3 + vite + element-plus
+# vue3 + vite2 + element-plus
 
-**比较超前的试验性框架,基于[vite](https://vite-design.surge.sh/guide/chinese-doc.html)新一代脚手架搭建...**
+**比较超前的试验性框架,基于[vite2](https://vite-design.surge.sh/guide/chinese-doc.html)新一代脚手架搭建...**
 
  目前vue3生态还在逐步建立中...vue2.x项目不建议直接升级vue3. 
+
+## Getting Start
+
+- npm run dev 
+
+- npm run build
+
+- npm run report 
 
 ## 风格指南
 
