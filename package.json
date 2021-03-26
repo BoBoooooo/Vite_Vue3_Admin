@@ -5,12 +5,14 @@
   "author": "BoBo<boboooooo159@gmail.com>",
   "scripts": {
     "dev": "vite --mode dev",
-    "build": "vite build"
+    "build": "vite build",
+    "report": "vite build --mode report"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "element-plus": "^1.0.2-beta.35",
     "nprogress": "^0.2.0",
+    "rollup-plugin-visualizer": "^4.2.2",
     "vite-plugin-svg-icons": "^0.4.0",
     "vue": "^3.0.0-0",
     "vue-class-component": "^8.0.0-rc.1",
@@ -19,6 +21,7 @@
     "vuex-persistedstate": "^4.0.0-beta.3"
   },
   "devDependencies": {
+    "@types/rollup-plugin-visualizer": "^2.6.0",
     "@typescript-eslint/eslint-plugin": "^3.6.1",
     "@typescript-eslint/parser": "^3.6.1",
     "@vitejs/plugin-vue": "^1.1.5",

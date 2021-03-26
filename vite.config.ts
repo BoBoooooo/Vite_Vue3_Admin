@@ -12,6 +12,11 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   const root = process.cwd();
   const viteEnv = loadEnv(mode, root);
   const isBuild = command === 'build';
+
+  const isCdn = viteEnv.VITE_CDN;
+
+  const cdnList = ['vue'];
+
   return {
     resolve: {
       alias: {
@@ -19,5 +24,10 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       },
     },
     plugins: createVitePlugins(viteEnv, isBuild),
+    build: {
+      rollupOptions: {
+        external: isCdn ? cdnList : [],
+      },
+    },
   };
 };

@@ -1,12 +1,11 @@
 import type { Plugin } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-
 import { configHtmlPlugin } from './html';
-
 import { configCompressPlugin } from './compress';
 import { configImageminPlugin } from './imagemin';
 import { configSvgIconsPlugin } from './svgSprite';
+import { configAnalysisPlugin } from './analysis';
 
 export function createVitePlugins(viteEnv: Record<string, string>, isBuild: boolean) {
   const vitePlugins: (Plugin | Plugin[])[] = [
@@ -16,7 +15,7 @@ export function createVitePlugins(viteEnv: Record<string, string>, isBuild: bool
     vueJsx(),
   ];
   // vite-plugin-html
-  vitePlugins.push(configHtmlPlugin(viteEnv, isBuild));
+  vitePlugins.push(configHtmlPlugin(viteEnv));
   // vite-plugin-svg-icons
   vitePlugins.push(configSvgIconsPlugin(isBuild));
   
@@ -26,6 +25,9 @@ export function createVitePlugins(viteEnv: Record<string, string>, isBuild: bool
     vitePlugins.push(configImageminPlugin());
     // rollup-plugin-gzip
     vitePlugins.push(configCompressPlugin());
+  }
+  if(viteEnv.VITE_IS_REPORT){
+    vitePlugins.push(configAnalysisPlugin())
   }
 
   return vitePlugins;
