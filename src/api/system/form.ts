@@ -24,7 +24,7 @@ export function getTables() {
  * @param {String} tablename
  * @returns 表格设计json
  */
-export function getTableDetail(tablename) {
+export function getTableDetail(tablename: string) {
   return axios({
     url: '/dynamictables/detail',
     method: 'post',
@@ -36,7 +36,7 @@ export function getTableDetail(tablename) {
  * 获取所有表单设计json
  * @param tablename
  */
-export function getFormDetail(tablename) {
+export function getFormDetail(tablename: string) {
   return axios({
     url: '/form/detail',
     method: 'post',
@@ -48,7 +48,7 @@ export function getFormDetail(tablename) {
  * 获取表中所有字段信息
  * @param {String} tablename
  */
-export function getFormKey(tablename) {
+export function getFormKey(tablename: string) {
   return axios({
     url: '/form/getKey',
     method: 'post',

@@ -7,7 +7,7 @@
 import axios from '@/plugins/axios';
 
 // 用户登录
-export function login(userInfo): any {
+export function login(userInfo: any) {
   return axios({
     url: '/users/login',
     method: 'post',
@@ -32,7 +32,7 @@ export function logout() {
 }
 
 // 修改密码
-export function update(data) {
+export function update(data: any) {
   return axios({
     url: '/users/changepassword',
     method: 'post',
