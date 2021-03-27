@@ -7,6 +7,7 @@
 import { loadEnv, UserConfig, ConfigEnv } from 'vite';
 import { resolve } from 'path';
 import { createVitePlugins } from './build/vite/plugin';
+import cdnList from './build/vite/plugin/cdn';
 
 export default ({ command, mode }: ConfigEnv): UserConfig => {
   const root = process.cwd();
@@ -14,8 +15,6 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   const isBuild = command === 'build';
 
   const isCdn = viteEnv.VITE_CDN === 'true';
-
-  const cdnList = ['vue'];
 
   return {
     resolve: {
@@ -26,7 +25,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     plugins: createVitePlugins(viteEnv, isBuild),
     build: {
       rollupOptions: {
-        external: isCdn ? cdnList : undefined,
+        external: isCdn ? cdnList.map((item) => item.name) : undefined,
       },
     },
   };
