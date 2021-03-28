@@ -9,6 +9,7 @@
  export function configAnalysisPlugin(): Plugin | Plugin[]  {
   const plugin = visualizer({
     open: true,
+    gzipSize: true,
   })
    return plugin as Plugin;
  }
