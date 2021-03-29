@@ -4,7 +4,7 @@
 
  目前vue3生态还在逐步建立中...vue2.x项目不建议直接升级vue3. 
 
- [在线地址](http://server.boboooooo.top:9996)
+ [在线地址](http://server.boboooooo.top:9995)
 
 ## Getting Start
 
