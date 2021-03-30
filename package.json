@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --mode dev",
     "build": "vite build",
-    "report": "vite build --mode report"
+    "report": "vite build --mode report",
+    "fix": "eslint --fix --ext .ts,.js,.vue src"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -28,7 +29,7 @@
     "autoprefixer": "^10.2.5",
     "babel-plugin-import": "^1.13.0",
     "eslint": "^7.4.0",
-    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^7.0.0-0",
     "prettier": "^2.0.5",
@@ -40,5 +41,16 @@
     "vite-plugin-html": "^2.0.3",
     "vite-plugin-imagemin": "^0.2.9",
     "vue-eslint-parser": "^7.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue,ts,scss}": [
+      "npm run fix",
+      "git add"
+    ]
   }
 }

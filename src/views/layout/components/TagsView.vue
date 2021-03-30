@@ -6,40 +6,24 @@
 -->
 <template>
   <div class="tags-view-container">
-    <scroll-pane
-      ref="scrollPane"
-      class="tags-view-wrapper"
-    >
+    <scroll-pane ref="scrollPane" class="tags-view-wrapper">
       <router-link
         v-for="tag in Array.from(visitedViews)"
         ref="tag"
         :key="tag.path"
-        :class="isActive(tag)?'active':''"
+        :class="isActive(tag) ? 'active' : ''"
         :to="tag.path"
         class="tags-view-item"
-        @contextmenu.prevent="openMenu(tag,$event)"
+        @contextmenu.prevent="openMenu(tag, $event)"
       >
         {{ tag.title }}
-        <span
-          class="el-icon-close"
-          @click.prevent.stop="closeSelectedTag(tag)"
-        />
+        <span class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)" />
       </router-link>
     </scroll-pane>
-    <ul
-      v-show="visible"
-      :style="{left:left+'px',top:top+'px'}"
-      class="contextmenu"
-    >
-      <li @click="closeSelectedTag(selectedTag)">
-        关闭当前
-      </li>
-      <li @click="closeOthersTags">
-        关闭其他
-      </li>
-      <li @click="closeAllTags">
-        关闭全部
-      </li>
+    <ul v-show="visible" :style="{ left: left + 'px', top: top + 'px' }" class="contextmenu">
+      <li @click="closeSelectedTag(selectedTag)">关闭当前</li>
+      <li @click="closeOthersTags">关闭其他</li>
+      <li @click="closeAllTags">关闭全部</li>
     </ul>
   </div>
 </template>
@@ -47,7 +31,7 @@
 <script>
 import ScrollPane from '@/components/ScrollPane/index.vue';
 
-import { Component, Vue, Watch } from 'vue-class-component';
+import { Vue, Watch } from 'vue-class-component';
 
 @Option({
   name: 'TagsView',
@@ -117,7 +101,7 @@ export default class TagsView extends Vue {
   }
 
   closeSelectedTag(view) {
-    this.$store.dispatch('delVisitedViews', view).then((views) => {
+    this.$store.dispatch('delVisitedViews', view).then(views => {
       if (this.isActive(view)) {
         const latestView = views.slice(-1)[0];
         if (latestView) {

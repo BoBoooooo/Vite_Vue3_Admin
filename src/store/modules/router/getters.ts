@@ -4,7 +4,7 @@ import { RouterState } from './state';
 
 const getters: GetterTree<RouterState, RootState> = {
   routers: state => state.routers,
-  addRouters: state => state.addRouters
+  addRouters: state => state.addRouters,
 };
 
 export default getters;

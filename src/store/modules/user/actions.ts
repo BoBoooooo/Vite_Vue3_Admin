@@ -1,10 +1,10 @@
-import { ElMessageBox } from "element-plus";
-import { ActionTree } from "vuex";
-import { getInfo, login, update } from "@/api/user";
-import { RootState } from "@/store/root.state";
-import { UserState } from "./state";
+import { ElMessageBox } from 'element-plus';
+import { ActionTree } from 'vuex';
+import { getInfo, login, update } from '@/api/user';
+import { RootState } from '@/store/root.state';
+import { UserState } from './state';
 
-const actions: ActionTree<UserState, RootState> =  {
+const actions: ActionTree<UserState, RootState> = {
   // 登录并设置token
   async setTokenByLogin({ commit }, userInfo) {
     // 开发阶段直接登录而不请求后端接口
@@ -25,7 +25,7 @@ const actions: ActionTree<UserState, RootState> =  {
   // 根据token请求用户信息并设置到store
   async getUserInfoByToken({ commit }) {
     // 请求userinfo接口获取用户名和可访问页面
-    const promise = await getInfo().then((response) => {
+    const promise = await getInfo().then(response => {
       const { data } = response;
       commit('SET_USER_REALNAME', data.realName);
       commit('SET_USERNAME', data.userName);
@@ -66,6 +66,6 @@ const actions: ActionTree<UserState, RootState> =  {
     });
     return promise;
   },
-}
+};
 
-export default actions
+export default actions;

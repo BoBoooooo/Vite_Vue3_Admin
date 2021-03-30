@@ -13,7 +13,7 @@
     <div
       class="main-container"
       :class="{
-        'hideSidebar':!sidebar
+        hideSidebar: !sidebar,
       }"
     >
       <!-- TAB标签页 -->
@@ -27,22 +27,22 @@
 </template>
 
 <script>
-import { AppMain,Header,Menu } from './components/index.ts';
+import { AppMain, Header, Menu } from './components/index.ts';
 
 export default {
-   name: 'Layout',
+  name: 'Layout',
   components: {
     AppMain,
     // TagsView,
     Header,
     Menu,
   },
- computed:{
-   sidebar() {
-    return this.$store.getters['app/sidebar'].opened;
-  }
- }
-}
+  computed: {
+    sidebar() {
+      return this.$store.getters['app/sidebar'].opened;
+    },
+  },
+};
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
@@ -57,7 +57,7 @@ export default {
     background: #f0f3f7;
     margin-left: 220px;
     padding: 20px;
-      overflow: auto;
+    overflow: auto;
     box-sizing: border-box;
     height: calc(100% - 40px);
     margin-top: 60px;

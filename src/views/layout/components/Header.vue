@@ -28,20 +28,18 @@
           isActive: !sidebar,
         }"
       />
-      <Breadcrumb /> 
+      <Breadcrumb />
       <div class="header-right-container">
         <div class="user-container">
-          <svgIcon
-            class="photo"
-            icon-class="public-teacher"
-          />
+          <svgIcon class="photo" icon-class="public-teacher" />
           <span
             :style="{
               color: themeColor.header.textColor,
             }"
             class="userName el-dropdown-link"
           >
-            {{ realname }}</span>
+            {{ realname }}</span
+          >
           <i
             :style="{
               color: themeColor.header.textColor,
@@ -74,11 +72,11 @@ export default defineComponent({
     const store = useStore();
     const methods = {
       toggleSideBar() {
-       store.dispatch('app/ToggleSideBar');
+        store.dispatch('app/ToggleSideBar');
       },
 
       logOut() {
-       store.dispatch('user/clearToken');
+        store.dispatch('user/clearToken');
       },
     };
 
@@ -91,7 +89,7 @@ export default defineComponent({
       sidebar,
       themeColor,
       ...methods,
-      realname: store.getters['user/realname']
+      realname: store.getters['user/realname'],
     };
   },
 });

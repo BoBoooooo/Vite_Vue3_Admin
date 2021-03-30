@@ -23,7 +23,7 @@ const service = axios.create({
 
 // 拦截请求
 service.interceptors.request.use(
-  (config) => {
+  config => {
     // 全局进度条loading
     NProgress.start();
     const token = store.getters['user/token'];
@@ -33,7 +33,7 @@ service.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
+  error => {
     // 请求出错
     ElMessage({
       message: error.message,
@@ -46,7 +46,7 @@ service.interceptors.request.use(
 
 // 拦截响应
 service.interceptors.response.use(
-  (response) => {
+  response => {
     const res = response.data;
     const { message, code } = res;
 
@@ -84,7 +84,7 @@ service.interceptors.response.use(
     // 正常响应继续传递
     return res;
   },
-  (error) => {
+  error => {
     NProgress.done();
     // http状态码200以外的情况
     // 请检查网络链接或联系管理员

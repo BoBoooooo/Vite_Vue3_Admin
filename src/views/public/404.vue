@@ -7,18 +7,8 @@
 <template>
   <div style="height: 100%; width: 100%">
     <div class="pic-404">
-      <svg-icon
-        class="logo"
-        icon-class="public-404"
-      />
-      <el-button
-        style="box-shadow: none"
-        type="text"
-        class="btn"
-        @click="goLogin"
-      >
-        页面丢失了哦,请重新登录~!
-      </el-button>
+      <svg-icon class="logo" icon-class="public-404" />
+      <el-button style="box-shadow: none" type="text" class="btn" @click="goLogin"> 页面丢失了哦,请重新登录~! </el-button>
     </div>
   </div>
 </template>

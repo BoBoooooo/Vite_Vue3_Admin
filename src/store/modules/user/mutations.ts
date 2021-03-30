@@ -1,5 +1,5 @@
-import { MutationTree } from "vuex";
-import { UserState } from "./state";
+import { MutationTree } from 'vuex';
+import { UserState } from './state';
 
 const mutations: MutationTree<UserState> = {
   SET_TOKEN: (state, token: string) => {
@@ -28,4 +28,4 @@ const mutations: MutationTree<UserState> = {
     state.photo = photo;
   },
 };
-export default mutations
+export default mutations;

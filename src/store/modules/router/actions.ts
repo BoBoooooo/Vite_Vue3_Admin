@@ -2,11 +2,11 @@ import { RouteRecordRaw } from 'vue-router';
 import { RootState } from '@/store/root.state';
 import { ActionTree } from 'vuex';
 import { RouterState } from './state';
-import router,{ asyncRouterMap } from '@/router/index';
+import router, { asyncRouterMap } from '@/router/index';
 
 function hasPermission(roles: string[], route: RouteRecordRaw) {
   if (route.name) {
-    return roles.some((role) => route.name === role);
+    return roles.some(role => route.name === role);
   }
   return true;
 }
@@ -17,7 +17,7 @@ function hasPermission(roles: string[], route: RouteRecordRaw) {
  * @param roles 当前登录用户的角色
  */
 function filterAsyncRouter(routerMap: RouteRecordRaw[], roles: string[]) {
-  const accessedRouters = routerMap.filter((route) => {
+  const accessedRouters = routerMap.filter(route => {
     // 如果父级菜单有访问权限
     if (hasPermission(roles, route)) {
       // 下级菜单鉴权
@@ -33,14 +33,14 @@ function filterAsyncRouter(routerMap: RouteRecordRaw[], roles: string[]) {
 
 const actions: ActionTree<RouterState, RootState> = {
   // 根据角色名称设置路由
-  generateRoutes({ commit,state }, userInfo) {
+  generateRoutes({ commit, state }, userInfo) {
     // 当前用户有权限的路由，当前用户登录名
-   const args =  {
+    const args = {
       roleRouters: userInfo.roleAuthName.split(','),
       userName: userInfo.userName,
-    }
+    };
     const { roleRouters, userName } = args;
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       // 管理员可查看所有页面
       if (userName === 'admin') {
         commit('SET_ROUTERS', asyncRouterMap);

@@ -2,7 +2,7 @@ import { MutationTree } from 'vuex';
 import { AppState } from './state';
 
 const mutations: MutationTree<AppState> = {
-  TOGGLE_SIDEBAR: (state) => {
+  TOGGLE_SIDEBAR: state => {
     if (state.sidebar.opened) {
       state.sidebar.opened = true;
     } else {

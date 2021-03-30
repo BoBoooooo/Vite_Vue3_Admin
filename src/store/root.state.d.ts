@@ -5,5 +5,5 @@ import { UserState } from './modules/user/state';
 export type RootState = {
   user: UserState;
   app: AppState;
-  router: RouterState
+  router: RouterState;
 };

@@ -6,21 +6,13 @@
 @createDate 2018年11月13日14:48:28
 -->
 <template>
-  <section
-    ref="appmain"
-    class="app-main"
-    @scroll="handleScroll"
-  >
-    <RouterView
-      :key="key"
-      :scroll-top="scrollTop"
-      @viewScroll="viewScroll"
-    />
+  <section ref="appmain" class="app-main" @scroll="handleScroll">
+    <RouterView :key="key" :scroll-top="scrollTop" @viewScroll="viewScroll" />
   </section>
 </template>
 <script lang="ts">
 import { useRoute } from 'vue-router';
-import { computed,ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
 export default {
   setup() {
@@ -43,7 +35,7 @@ export default {
     };
 
     // 重定位滚动条
-    const viewScroll = (v) => {
+    const viewScroll = v => {
       appmain.value.scrollTop = v;
     };
     return {

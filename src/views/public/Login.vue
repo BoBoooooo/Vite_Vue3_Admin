@@ -1,58 +1,23 @@
 <template>
   <div class="login-container">
     <el-row>
-      <el-col
-        :span="12"
-        class="wallpaper"
-      >
+      <el-col :span="12" class="wallpaper">
         <div @click="redirectToGitHub">
-          <svgIcon
-            icon-class="public-banner"
-            class="banner"
-          />
-          <p class="author">
-            © Vite2 + Vue3 + ElementPlus By BoBo
-          </p>
+          <svgIcon icon-class="public-banner" class="banner" />
+          <p class="author">© Vite2 + Vue3 + ElementPlus By BoBo</p>
         </div>
       </el-col>
       <el-col :span="12">
-        <el-form
-          ref="formRef"
-          :model="loginForm"
-          class="login-form"
-          auto-complete="on"
-          label-position="left"
-        >
-          <h5 class="title">
-            Welcome 🎯
-          </h5>
+        <el-form ref="formRef" :model="loginForm" class="login-form" auto-complete="on" label-position="left">
+          <h5 class="title">Welcome 🎯</h5>
           <el-form-item prop="username">
-            <el-input
-              v-model="loginForm.username"
-              name="username"
-              type="text"
-              auto-complete="on"
-              placeholder="admin"
-            />
+            <el-input v-model="loginForm.username" name="username" type="text" auto-complete="on" placeholder="admin" />
           </el-form-item>
           <el-form-item prop="password">
-            <el-input
-              v-model="loginForm.password"
-              type="password"
-              name="password"
-              auto-complete="on"
-              placeholder="123"
-              @keyup.enter="handleLogin"
-            />
+            <el-input v-model="loginForm.password" type="password" name="password" auto-complete="on" placeholder="123" @keyup.enter="handleLogin" />
           </el-form-item>
           <el-form-item>
-            <el-button
-              :loading="btnLoginIsLoading"
-              type="default"
-              @click.prevent="handleLogin"
-            >
-              LOGIN
-            </el-button>
+            <el-button :loading="btnLoginIsLoading" type="default" @click.prevent="handleLogin"> LOGIN </el-button>
           </el-form-item>
         </el-form>
       </el-col>
@@ -107,7 +72,7 @@ export default defineComponent({
       handleLogin,
       redirectToGitHub,
       formRef,
-      btnLoginIsLoading
+      btnLoginIsLoading,
     };
   },
 });

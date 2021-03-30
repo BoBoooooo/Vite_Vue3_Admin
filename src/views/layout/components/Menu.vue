@@ -16,16 +16,14 @@
           hideSidebar: !sidebar,
         }"
       >
-        <img
-          class="header_logo"
-          src="/src/assets/logo.png"
-        >
+        <img class="header_logo" src="/src/assets/logo.png" />
         <span
           class="title"
           :style="{
             color: themeColor.sidebar.textColor,
           }"
-        >{{ title }}</span>
+          >{{ title }}</span
+        >
       </div>
     </el-collapse-transition>
 
@@ -41,10 +39,7 @@
       class="menu"
     >
       <!-- 菜单项组件 -->
-      <MenuItem
-        :routes="routers"
-        :collpase="sidebar"
-      />
+      <MenuItem :routes="routers" />
     </el-menu>
   </div>
 </template>
@@ -55,7 +50,7 @@ import MenuItem from './MenuItem.vue';
 import { reactive, computed } from 'vue';
 import { useStore } from 'vuex';
 import { defineComponent } from 'vue';
-import {ElCollapseTransition} from 'element-plus/lib/el-transition';
+import { ElCollapseTransition } from 'element-plus/lib/el-transition';
 
 export default defineComponent({
   name: 'Menu',

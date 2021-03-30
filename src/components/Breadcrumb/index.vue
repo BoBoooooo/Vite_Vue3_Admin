@@ -6,31 +6,19 @@
  -->
 <template>
   <div class="bread-container">
-    <el-breadcrumb
-      class="app-breadcrumb"
-      separator=">"
-    >
+    <el-breadcrumb class="app-breadcrumb" separator=">">
       <transition-group name="breadcrumb">
-        <el-breadcrumb-item
-          v-for="(item, index) in levelList"
-          :key="item.path"
-        >
-          <SvgIcon
-            v-if="!item.parent"
-            :icon-class="'menu-'+item.meta.title"
-            class="icon"
-          />
+        <el-breadcrumb-item v-for="(item, index) in levelList" :key="item.path">
+          <SvgIcon v-if="!item.parent" :icon-class="'menu-' + item.meta.title" class="icon" />
           <span
             v-if="item.redirect || index == levelList.length - 1"
             class="no-redirect"
             :style="{
               verticalAlign: item.parent ? '-4.5px' : '0px',
             }"
-          >{{ item.meta.title }}</span>
-          <a
-            v-else
-            @click.prevent="handleLink(item)"
-          >{{ item.meta.title }}</a>
+            >{{ item.meta.title }}</span
+          >
+          <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
         </el-breadcrumb-item>
       </transition-group>
     </el-breadcrumb>
@@ -80,10 +68,7 @@ export default defineComponent({
       if (!name) {
         return false;
       }
-      return name
-        .trim()
-        .toLocaleLowerCase()
-        .includes('dashboard'.toLocaleLowerCase());
+      return name.trim().toLocaleLowerCase().includes('dashboard'.toLocaleLowerCase());
     },
     pathCompile(path) {
       return path;
@@ -97,7 +82,7 @@ export default defineComponent({
       this.$router.push(this.pathCompile(path));
     },
   },
-})
+});
 </script>
 <style scoped>
 .app-breadcrumb :deep .el-breadcrumb__separator {

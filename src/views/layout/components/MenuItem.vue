@@ -8,44 +8,22 @@
 <template>
   <div class="menu-wrapper">
     <template v-for="item in routes">
-      <router-link
-        v-if="!item.meta.hidden && item.children && item.children.length === 1"
-        :key="item.name"
-        :to="{ name: item.children[0].name }"
-      >
-        <el-tooltip
-          effect="dark"
-          :content="item.children[0].meta.title"
-          placement="right"
-        >
+      <router-link v-if="!item.meta.hidden && item.children && item.children.length === 1" :key="item.name" :to="{ name: item.children[0].name }">
+        <el-tooltip effect="dark" :content="item.children[0].meta.title" placement="right">
           <el-menu-item :index="item.children[0].name">
-            <SvgIcon :icon-class="'menu-'+item.meta.title" />
+            <SvgIcon :icon-class="'menu-' + item.meta.title" />
             <span> {{ item.children[0].meta.title }}</span>
           </el-menu-item>
         </el-tooltip>
       </router-link>
-      <el-submenu
-        v-else-if="!item.meta.hidden && item.children"
-        :key="item.name"
-        :index="item.name"
-      >
+      <el-submenu v-else-if="!item.meta.hidden && item.children" :key="item.name" :index="item.name">
         <template #title>
-          <SvgIcon :icon-class="'menu-'+item.meta.title" />
+          <SvgIcon :icon-class="'menu-' + item.meta.title" />
           <span> {{ item.meta.title }}</span>
         </template>
-        <template v-for="child in item.children.filter((s) => !s.meta.hidden)">
-          <menu-item
-            v-if="child.children && child.children.length > 0"
-            :key="child.name"
-            :routes="[child]"
-            class="menu-indent"
-          />
-          <router-link
-            v-else
-            :key="child.name"
-            :to="item.path + '/' + child.path"
-            class="menu-indent"
-          >
+        <template v-for="child in item.children.filter(s => !s.meta.hidden)">
+          <menu-item v-if="child.children && child.children.length > 0" :key="child.name" :routes="[child]" class="menu-indent" />
+          <router-link v-else :key="child.name" :to="item.path + '/' + child.path" class="menu-indent">
             <el-menu-item :index="item.path + '/' + child.path">
               <span>{{ child.meta.title }}</span>
             </el-menu-item>

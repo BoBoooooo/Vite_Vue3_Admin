@@ -44,7 +44,7 @@ export default defineComponent({
       default: null,
     },
   },
-})
+});
 </script>
 
 <style scoped>
@@ -52,7 +52,7 @@ export default defineComponent({
   display: inline-block;
   cursor: pointer;
   width: 16px;
-  fill:currentColor;
+  fill: currentColor;
   height: 16px;
   transform: rotate(90deg);
   transition: 0.38s;

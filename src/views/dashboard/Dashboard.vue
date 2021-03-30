@@ -17,10 +17,7 @@
             'align-items': 'center',
           }"
         >
-          <SvgIcon
-            icon-class="public-teacher"
-            class="icon"
-          />
+          <SvgIcon icon-class="public-teacher" class="icon" />
           <div class="tips">
             <h2>你好 {{ realname }}</h2>
             <div>作者寄语：能见众生便是如来，不易匠心方得始终。 除去繁华，愿匠心安在。</div>
@@ -30,57 +27,24 @@
     </el-row>
     <el-row :gutter="15">
       <el-col :span="24">
-        <el-card
-          class="mt-15"
-          shadow="hover"
-        >
+        <el-card class="mt-15" shadow="hover">
           <template #header>
             <div class="clearfix">
               <span>
                 <SvgIcon icon-class="public-banner" />
-                我的开源项目</span>
+                我的开源项目</span
+              >
             </div>
           </template>
           <div class="demo-container">
-            <el-row
-              :gutter="15"
-              class="row"
-            >
-              <el-col
-                v-for="(project, index) in data"
-                :key="index"
-                :span="8"
-                class="item"
-              >
+            <el-row :gutter="15" class="row">
+              <el-col v-for="(project, index) in data" :key="index" :span="8" class="item">
                 <div>
-                  <el-card
-                    :body-style="{ padding: '0px' }"
-                    shadow="hover"
-                  >
-                    <SvgIcon
-                      icon-class="public-item"
-                      class="image"
-                    />
-                    <div
-                      style="padding: 14px"
-                      class="item-tips text-ellipsis"
-                    >
-                      <el-link
-                        class="name text-ellipsis"
-                        target="_blank"
-                        type="primary"
-                        :href="project.url"
-                      >
-                        <i class="el-icon el-icon-star-on" /> {{ project.name }}
-                      </el-link>
-                      <el-link
-                        class="preview text-ellipsis"
-                        target="_blank"
-                        type="danger"
-                        :href="project.demo"
-                      >
-                        在线预览
-                      </el-link>
+                  <el-card :body-style="{ padding: '0px' }" shadow="hover">
+                    <SvgIcon icon-class="public-item" class="image" />
+                    <div style="padding: 14px" class="item-tips text-ellipsis">
+                      <el-link class="name text-ellipsis" target="_blank" type="primary" :href="project.url"> <i class="el-icon el-icon-star-on" /> {{ project.name }} </el-link>
+                      <el-link class="preview text-ellipsis" target="_blank" type="danger" :href="project.demo"> 在线预览 </el-link>
                       <span class="des text-ellipsis">{{ project.des }}</span>
                     </div>
                   </el-card>
@@ -103,10 +67,10 @@ export default {
   name: 'Dashboard',
   setup() {
     const data = reactive(projectData);
-    const store = useStore()
+    const store = useStore();
     return {
       data,
-      realname: store.getters['user/realname']
+      realname: store.getters['user/realname'],
     };
   },
 };
