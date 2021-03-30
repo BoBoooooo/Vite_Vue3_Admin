@@ -2,6 +2,7 @@
 因为vue-cli3安装插件时默认把其样式引用放到plugins/element.js*/
 @import './mixin.scss'; // 待重构
 @import './utils.scss';
+@import './element-ui-override.scss';
 body {
   height: 100%;
   overflow: hidden;

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "element-plus": "^1.0.2-beta.35",
+    "element-plus": "^1.0.2-beta.36",
     "nprogress": "^0.2.0",
     "rollup-plugin-visualizer": "^4.2.2",
     "vite-plugin-svg-icons": "^0.4.0",

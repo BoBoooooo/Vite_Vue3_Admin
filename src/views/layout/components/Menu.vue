@@ -6,26 +6,29 @@
 -->
 <template>
   <div>
-    <div
-      class="title-container"
-      :style="{
-        backgroundColor: themeColor.sidebar.backgroundColor,
-      }"
-      :class="{
-        hideSidebar: !sidebar,
-      }"
-    >
-      <img
-        class="header_logo"
-        src="/src/assets/logo.png"
-      >
-      <span
-        class="title"
+    <el-collapse-transition>
+      <div
+        class="title-container"
         :style="{
-          color: themeColor.sidebar.textColor,
+          backgroundColor: themeColor.sidebar.backgroundColor,
         }"
-      >{{ title }}</span>
-    </div>
+        :class="{
+          hideSidebar: !sidebar,
+        }"
+      >
+        <img
+          class="header_logo"
+          src="/src/assets/logo.png"
+        >
+        <span
+          class="title"
+          :style="{
+            color: themeColor.sidebar.textColor,
+          }"
+        >{{ title }}</span>
+      </div>
+    </el-collapse-transition>
+
     <!-- 导航菜单+滚动条 -->
     <el-menu
       :collapse="!sidebar"
@@ -36,12 +39,12 @@
       :text-color="themeColor.sidebar.textColor"
       :active-text-color="themeColor.sidebar.activeTextColor"
       class="menu"
-      :class="{
-        hideSidebar: !sidebar,
-      }"
     >
       <!-- 菜单项组件 -->
-      <MenuItem :routes="routers" />
+      <MenuItem
+        :routes="routers"
+        :collpase="sidebar"
+      />
     </el-menu>
   </div>
 </template>
@@ -52,11 +55,13 @@ import MenuItem from './MenuItem.vue';
 import { reactive, computed } from 'vue';
 import { useStore } from 'vuex';
 import { defineComponent } from 'vue';
+import {ElCollapseTransition} from 'element-plus/lib/el-transition';
 
 export default defineComponent({
   name: 'Menu',
   components: {
     MenuItem,
+    ElCollapseTransition,
   },
   setup() {
     const store = useStore();
@@ -71,7 +76,7 @@ export default defineComponent({
       routers: store.getters['router/routers'],
     };
   },
-})
+});
 </script>
 <style scoped>
 .el-submenu__icon-arrow el-icon-arrow-right {
@@ -83,9 +88,10 @@ export default defineComponent({
   position: fixed;
   left: 0;
   top: 0;
+  border-right: solid 1px #e6e6e6;
   display: flex;
   align-items: center;
-  width: 220px;
+  width: 221px;
   padding-left: 20px;
   text-align: center;
   box-sizing: border-box;
@@ -106,7 +112,7 @@ export default defineComponent({
     color: yellow;
   }
   &.hideSidebar {
-    width: 64px;
+    width: 65px;
     padding: 0;
     .title {
       display: none;
@@ -118,30 +124,17 @@ export default defineComponent({
 }
 .menu {
   top: 64px;
-  width: 220px;
   bottom: 0;
   left: 0 !important;
   right: none !important;
   overflow: auto;
   position: fixed;
   height: 100%;
+  &:not(.el-menu--collapse) {
+    width: 220px;
+  }
   .el-menu {
     height: 100%;
-  }
-  &.hideSidebar {
-    width: 64px;
-    padding: 0;
-    :deep.el-submenu__title,
-    :deep.el-menu-item {
-      padding-left: 16px !important;
-      height: auto;
-    }
-    :deep.el-submenu {
-      padding-left: 0 !important;
-    }
-    :deep.el-submenu__icon-arrow {
-      display: none;
-    }
   }
 }
 </style>

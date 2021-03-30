@@ -19,7 +19,8 @@
           placement="right"
         >
           <el-menu-item :index="item.children[0].name">
-            <SvgIcon :icon-class="'menu-'+item.meta.title" /> {{ item.children[0].meta.title }}
+            <SvgIcon :icon-class="'menu-'+item.meta.title" />
+            <span> {{ item.children[0].meta.title }}</span>
           </el-menu-item>
         </el-tooltip>
       </router-link>
@@ -29,7 +30,8 @@
         :index="item.name"
       >
         <template #title>
-          <SvgIcon :icon-class="'menu-'+item.meta.title" /> {{ item.meta.title }}
+          <SvgIcon :icon-class="'menu-'+item.meta.title" />
+          <span> {{ item.meta.title }}</span>
         </template>
         <template v-for="child in item.children.filter((s) => !s.meta.hidden)">
           <menu-item
@@ -45,7 +47,7 @@
             class="menu-indent"
           >
             <el-menu-item :index="item.path + '/' + child.path">
-              {{ child.meta.title }}
+              <span>{{ child.meta.title }}</span>
             </el-menu-item>
           </router-link>
         </template>
