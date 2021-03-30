@@ -8,7 +8,7 @@ const actions: ActionTree<UserState, RootState> = {
   // 登录并设置token
   async setTokenByLogin({ commit }, userInfo) {
     // 开发阶段直接登录而不请求后端接口
-    const promise = await login(userInfo).then((res: { code: number; data: { token: string } }) => {
+    const promise = await login(userInfo).then((res: any) => {
       // 登录成功
       if (res.code === 200) {
         commit('SET_TOKEN', `Bearer ${res.data.token}`);

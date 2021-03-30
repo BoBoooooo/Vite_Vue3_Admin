@@ -6,6 +6,7 @@ import { configCompressPlugin } from './compress';
 import { configImageminPlugin } from './imagemin';
 import { configSvgIconsPlugin } from './svgSprite';
 import { configAnalysisPlugin } from './analysis';
+import { configStylePlugin } from './element-plus';
 
 export function createVitePlugins(viteEnv: Record<string, string>, isBuild: boolean) {
   const vitePlugins: (Plugin | Plugin[])[] = [
@@ -18,7 +19,7 @@ export function createVitePlugins(viteEnv: Record<string, string>, isBuild: bool
   vitePlugins.push(configHtmlPlugin(viteEnv));
   // vite-plugin-svg-icons
   vitePlugins.push(configSvgIconsPlugin(isBuild));
-  
+  vitePlugins.push(configStylePlugin());
   // 生产环境开启gzip,图片压缩
   if (isBuild) {
     //vite-plugin-imagemin
@@ -26,8 +27,8 @@ export function createVitePlugins(viteEnv: Record<string, string>, isBuild: bool
     // rollup-plugin-gzip
     vitePlugins.push(configCompressPlugin());
   }
-  if(viteEnv.VITE_IS_REPORT){
-    vitePlugins.push(configAnalysisPlugin())
+  if (viteEnv.VITE_IS_REPORT) {
+    vitePlugins.push(configAnalysisPlugin());
   }
 
   return vitePlugins;

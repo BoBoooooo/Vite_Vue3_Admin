@@ -25,7 +25,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     plugins: createVitePlugins(viteEnv, isBuild),
     build: {
       rollupOptions: {
-        external: isCdn ? cdnList.map((item) => item.name) : undefined,
+        external: isCdn ? cdnList.map(item => item.name) : undefined,
       },
     },
   };

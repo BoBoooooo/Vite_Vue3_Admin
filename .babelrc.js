@@ -1,5 +1,5 @@
 /*
- * @file: 官网方式按需引入,暂时无效
+ * @file: babel config js
  * @copyright: BoBo
  * @author: BoBo
  * @Date: 2020年09月28 10:52:50

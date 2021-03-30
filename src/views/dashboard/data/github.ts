@@ -1,7 +1,7 @@
 /*
  * @file: 开源项目地址列表
  * @author: BoBo
- * @copyright: NanJing Anshare Tech .Com
+ * @copyright: BoBo
  * @Date: 2020-12-19 19:10:42
  */
 

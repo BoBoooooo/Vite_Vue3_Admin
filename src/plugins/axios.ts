@@ -88,9 +88,10 @@ service.interceptors.response.use(
     NProgress.done();
     // http状态码200以外的情况
     // 请检查网络链接或联系管理员
-    ElMessageBox.alert(error.response.data.message, '服务器异常', {
+    ElMessageBox.confirm(error.message, '服务器异常,请检查网络链接或联系管理员', {
       confirmButtonText: '重试',
       type: 'warning',
+      showCancelButton: false,
     });
 
     return Promise.reject(error);
