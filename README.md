@@ -6,7 +6,7 @@
 
  [在线地址](http://server.boboooooo.top:9995)
 
-## Getting Start
+## 开始使用
 
 - npm run dev 
 
