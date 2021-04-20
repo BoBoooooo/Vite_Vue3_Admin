@@ -29,11 +29,9 @@ import {
   ElRow,
   ElSubmenu,
   ElTooltip,
-  ElInfiniteScroll,
   ElLoading,
   ElMessage,
   ElMessageBox,
-  ElNotification,
 } from 'element-plus';
 
 const components = [
@@ -66,6 +64,6 @@ export default function (app: App<Element>) {
   });
 
   plugins.forEach(plugin => {
-    app.use(plugin);
+    (app as any).use(plugin);
   });
 }
