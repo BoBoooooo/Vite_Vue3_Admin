@@ -41,7 +41,8 @@
     "vite-plugin-html": "^2.0.3",
     "vite-plugin-imagemin": "^0.2.9",
     "vite-plugin-style-import": "^0.9.1",
-    "vue-eslint-parser": "^7.1.0"
+    "vue-eslint-parser": "^7.1.0",
+    "lint-staged": "^9.2.0"
   },
   "husky": {
     "hooks": {
