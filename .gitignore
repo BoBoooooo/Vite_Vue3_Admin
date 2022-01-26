@@ -4,3 +4,4 @@ dist
 *.local
 stats.html
 package-lock.json
+yarn.lock
